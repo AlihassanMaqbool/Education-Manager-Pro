@@ -122,7 +122,7 @@ const UserDashboard = ({ user }: UserDashboardProps) => {
     }
   };
 
-  const handleEnroll = async (course: Course) => {
+  const handleEnroll = async (course: Courses) => {
     try {
       const { error } = await supabase.from('enrollments').insert([{
         student_id: user.id,
@@ -160,12 +160,12 @@ const UserDashboard = ({ user }: UserDashboardProps) => {
     return enrollment?.progress || 0;
   };
 
-  const openCourseDetail = (course: Course) => {
+  const openCourseDetail = (course: Courses) => {
     setSelectedCourse(course);
     setShowCourseDetail(true);
   };
 
-  const confirmEnroll = (course: Course) => {
+  const confirmEnroll = (course: Courses) => {
     setEnrollingCourse(course);
     setShowEnrollConfirm(true);
   };
